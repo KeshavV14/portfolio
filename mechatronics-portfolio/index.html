@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a first-year Mechatronics Engineering student at the University of Waterloo.">
+    <title>Keshav Vyas | Mechatronics Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="brand" href="#top" aria-label="Keshav Vyas home">
+                <span class="brand-mark">KV</span>
+                <span>Keshav Vyas</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero container">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">01 / Introduction</p>
+                <h1>Building between <em>hardware</em> and software.</h1>
+                <p class="lede">I'm a first-year Mechatronics Engineering student at the University of Waterloo, interested in physical computing, intelligent systems, and making ideas tangible.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projects">View projects <span>↗</span></a>
+                    <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+                </div>
+            </div>
+            <div class="hero-visual reveal" aria-label="Abstract technical visualization">
+                <div class="hero-grid"></div>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="hero-readout"><span class="status-dot"></span><span>Currently learning</span><strong>Embedded systems</strong></div>
+                <div class="coordinates">43.4723° N<br>80.5449° W</div>
+            </div>
+        </section>
+
+        <section class="section container" id="about">
+            <div class="section-label"><span>02</span><span>About me</span></div>
+            <div class="about-layout reveal">
+                <h2>Curious by default.<br><span>Practical by choice.</span></h2>
+                <div class="about-copy">
+                    <p>I enjoy understanding how things work, then finding ways to make them work better. Mechatronics lets me move between CAD, circuits, code, and control systems.</p>
+                    <p>Outside the classroom, I'm building an engineering foundation through small experiments, personal projects, and plenty of iteration.</p>
+                    <dl class="details">
+                        <div><dt>Based in</dt><dd>Waterloo, ON</dd></div>
+                        <div><dt>Program</dt><dd>Mechatronics Engineering</dd></div>
+                        <div><dt>Class of</dt><dd>2029</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="projects">
+            <div class="section-heading reveal">
+                <div class="section-label"><span>03</span><span>Selected projects</span></div>
+                <p>A few things I've made while learning by doing.</p>
+            </div>
+            <div class="project-grid">
+                <article class="project-card project-feature reveal">
+                    <div class="project-art art-circuit"><span class="project-index">01</span><i></i><i></i><i></i><i></i></div>
+                    <div class="project-content"><div class="project-meta"><span>Personal project</span><span>2025</span></div><h3>Smart Desk System</h3><p>A sensor-based desk environment that tracks light, temperature, and occupancy.</p><div class="project-bottom"><div class="tags"><span>Arduino</span><span>C++</span><span>CAD</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-art art-wheel"><span class="project-index">02</span><b></b></div>
+                    <div class="project-content"><div class="project-meta"><span>Coursework</span><span>2025</span></div><h3>Line-Following Robot</h3><p>A compact autonomous robot designed to follow a marked path with real-time correction.</p><div class="project-bottom"><div class="tags"><span>Arduino</span><span>Controls</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-art art-code"><span class="project-index">03</span><strong>&lt;/&gt;</strong></div>
+                    <div class="project-content"><div class="project-meta"><span>Web project</span><span>2025</span></div><h3>Engineering Dashboard</h3><p>A clean interface for visualizing measurements from small hardware experiments.</p><div class="project-bottom"><div class="tags"><span>JavaScript</span><span>Data</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section container" id="experience">
+            <div class="section-label"><span>04</span><span>Experience &amp; learning</span></div>
+            <div class="timeline">
+                <div class="timeline-item reveal"><time>2025 — Present</time><div><h3>Mechatronics Engineering</h3><p>University of Waterloo · Waterloo, Ontario</p><span>Building fundamentals across mechanics, electronics, programming, and design.</span></div></div>
+                <div class="timeline-item reveal"><time>2024 — 2025</time><div><h3>Independent Projects</h3><p>Self-directed learning</p><span>Exploring microcontrollers, CAD, web development, and rapid prototyping.</span></div></div>
+                <div class="timeline-item reveal"><time>Next chapter</time><div><h3>Looking for opportunities</h3><p>Co-op · Design teams · Collaborations</p><span>Open to learning from people building useful, well-considered things.</span></div></div>
+            </div>
+        </section>
+
+        <section class="contact container reveal" id="contact">
+            <p class="eyebrow">05 / Get in touch</p>
+            <h2>Let's build something<br><em>worth sharing.</em></h2>
+            <a class="email" href="mailto:your.email@example.com">your.email@example.com <span>↗</span></a>
+            <div class="social-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+        </section>
+    </main>
+
+    <footer class="footer container"><span>© 2026 Keshav Vyas</span><span>Designed &amp; built in Waterloo</span></footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
