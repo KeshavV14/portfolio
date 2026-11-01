@@ -4,10 +4,8 @@ Welcome to my Mechatronics Portfolio! This website showcases my projects, backgr
 
 ## Project Structure
 
-- **index.html**: The main entry point of the portfolio website.
-- **about.html**: Information about me, including my background and interests.
-- **projects.html**: A showcase of my completed projects with descriptions and links.
-- **contact.html**: A contact form for reaching out to me.
+- **index.html**: The portfolio itself, a single page with every section.
+- **about.html**, **projects.html**, **contact.html**: Redirects to the matching section of index.html.
 - **css/styles.css**: Styles for the website, defining layout, colors, and fonts.
 - **js/script.js**: JavaScript code for interactive features.
 - **assets/resume.pdf**: My resume available for download.
@@ -28,8 +26,8 @@ Welcome to my Mechatronics Portfolio! This website showcases my projects, backgr
 ## Features
 
 - Responsive design for optimal viewing on various devices.
-- Interactive elements powered by JavaScript.
-- Easy navigation between different sections of the portfolio.
+- Interactive elements powered by JavaScript, including a live inverse kinematics arm in the hero.
+- Project filters, expandable experience entries, and section-aware navigation.
 
 ## License
 

@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of a first-year Mechatronics Engineering student at the University of Waterloo.">
+    <meta name="description" content="Portfolio of Keshav Vyas, a first-year Mechatronics Engineering student at the University of Waterloo building a self-feeding robotic arm for people with Parkinson's disease.">
     <title>Keshav Vyas | Mechatronics Engineering</title>
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <header class="site-header">
-        <nav class="nav container" aria-label="Main navigation">
+        <nav class="nav" aria-label="Main navigation">
             <a class="brand" href="#top" aria-label="Keshav Vyas home">
                 <span class="brand-mark">KV</span>
                 <span>Keshav Vyas</span>
@@ -21,10 +23,12 @@
                 <span></span><span></span>
             </button>
             <div class="nav-links">
+                <span class="nav-indicator" aria-hidden="true"></span>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
+                <a class="nav-resume" href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
             </div>
         </nav>
     </header>
@@ -33,20 +37,53 @@
         <section class="hero container">
             <div class="hero-copy reveal">
                 <p class="eyebrow">01 / Introduction</p>
-                <h1>Building between <em>hardware</em> and software.</h1>
-                <p class="lede">I'm a first-year Mechatronics Engineering student at the University of Waterloo, interested in physical computing, intelligent systems, and making ideas tangible.</p>
+                <h1>I build things that <em>move.</em></h1>
+                <p class="lede">I'm a first-year Mechatronics Engineering student at the University of Waterloo. Right now I'm developing a self-feeding robotic arm for people with Parkinson's disease.</p>
                 <div class="hero-actions">
                     <a class="button button-primary" href="#projects">View projects <span>↗</span></a>
-                    <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+                    <a class="button button-secondary" href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume <span>↗</span></a>
                 </div>
             </div>
-            <div class="hero-visual reveal" aria-label="Abstract technical visualization">
+            <div class="hero-visual reveal">
                 <div class="hero-grid"></div>
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-                <div class="hero-readout"><span class="status-dot"></span><span>Currently learning</span><strong>Embedded systems</strong></div>
-                <div class="coordinates">43.4723° N<br>80.5449° W</div>
+                <div class="hero-bar hero-bar-top">
+                    <span>Live inverse kinematics<small class="hint-fine"> · move your cursor</small><small class="hint-touch"> · tap to aim</small></span>
+                    <span class="arm-readout" aria-hidden="true">x <b data-readout="x">400</b> y <b data-readout="y">180</b></span>
+                </div>
+                <svg class="arm-demo" viewBox="0 0 520 420" role="img" aria-label="A two-link robot arm holding a level spoon. It moves between a bowl and a tracked mouth, and follows your cursor using inverse kinematics.">
+                    <path class="arm-reach" d="M -134 350 A 285 285 0 1 1 434 350" />
+                    <line class="arm-table" x1="0" y1="350" x2="520" y2="350" />
+                    <g class="arm-marks">
+                        <path d="M 366 150 h -12 v 12 M 434 150 h 12 v 12 M 366 214 h -12 v -12 M 434 214 h 12 v -12" />
+                        <text x="354" y="140">mouth</text>
+                        <path d="M 296 334 h 68 q -4 16 -24 16 h -20 q -20 0 -24 -16 z" />
+                        <text x="296" y="374">food</text>
+                    </g>
+                    <path class="arm-base" d="M 120 350 l 8 -22 h 44 l 8 22 z" />
+                    <line class="arm-link-outer" data-arm="upper" x1="150" y1="330" x2="150" y2="330" />
+                    <line class="arm-link-inner" data-arm="upper" x1="150" y1="330" x2="150" y2="330" />
+                    <line class="arm-link-outer" data-arm="fore" x1="150" y1="330" x2="150" y2="330" />
+                    <line class="arm-link-inner" data-arm="fore" x1="150" y1="330" x2="150" y2="330" />
+                    <line class="arm-spoon" data-arm="spoon" x1="150" y1="330" x2="150" y2="330" />
+                    <ellipse class="arm-bowl" data-arm="bowl" cx="150" cy="330" rx="10" ry="4" />
+                    <circle class="arm-joint" cx="150" cy="330" r="9" />
+                    <circle class="arm-joint" data-arm="elbow" cx="150" cy="330" r="8" />
+                    <circle class="arm-joint" data-arm="wrist" cx="150" cy="330" r="6" />
+                    <g class="arm-target" data-arm="target">
+                        <circle r="11" /><path d="M -17 0 h 10 M 7 0 h 10 M 0 -17 v 10 M 0 7 v 10" />
+                    </g>
+                </svg>
+                <div class="hero-bar hero-bar-bottom">
+                    <div class="hero-readout"><span class="status-dot"></span><span>Currently learning</span><strong>SolidWorks + OpenCV</strong></div>
+                    <span class="arm-readout" aria-hidden="true">θ₁ <b data-readout="shoulder">0</b>° θ₂ <b data-readout="elbow">0</b>°</span>
+                </div>
             </div>
+        </section>
+
+        <section class="stats container reveal" aria-label="Highlights">
+            <div class="stat"><strong><span data-count="90">90</span>%+</strong><span>faster load time for Sun Life's internal AI tool</span></div>
+            <div class="stat"><strong><span data-count="3">3</span>×</strong><span>straight VEX Robotics World Championship qualifications</span></div>
+            <div class="stat"><strong>VPs</strong><span>at Sun Life saw the solution and its productivity impact</span></div>
         </section>
 
         <section class="section container" id="about">
@@ -54,56 +91,217 @@
             <div class="about-layout reveal">
                 <h2>Curious by default.<br><span>Practical by choice.</span></h2>
                 <div class="about-copy">
-                    <p>I enjoy understanding how things work, then finding ways to make them work better. Mechatronics lets me move between CAD, circuits, code, and control systems.</p>
-                    <p>Outside the classroom, I'm building an engineering foundation through small experiments, personal projects, and plenty of iteration.</p>
+                    <p>I like finding out how things work, then making them work better. At UTS that meant leading the build on VEX competition robots. It also took me to a transmission shop for an independent study of CVTs and multi-speed gearboxes.</p>
+                    <p>At Sun Life, it meant taking an internal AI tool from a 13-second load to under one second. Mechatronics lets me keep moving between CAD, circuits, code, and control systems.</p>
                     <dl class="details">
                         <div><dt>Based in</dt><dd>Waterloo, ON</dd></div>
                         <div><dt>Program</dt><dd>Mechatronics Engineering</dd></div>
-                        <div><dt>Class of</dt><dd>2029</dd></div>
+                        <div><dt>Class of</dt><dd>2031</dd></div>
                     </dl>
+                    <div class="toolkit" aria-label="Toolkit"><span>Python</span><span>C++</span><span>Arduino</span><span>SolidWorks</span><span>AutoCAD</span><span>OpenCV</span></div>
                 </div>
             </div>
         </section>
 
         <section class="section container" id="projects">
             <div class="section-heading reveal">
-                <div class="section-label"><span>03</span><span>Selected projects</span></div>
-                <p>A few things I've made while learning by doing.</p>
+                <div class="section-label"><span>03</span><span>Projects</span></div>
+                <div class="project-filters" role="group" aria-label="Filter projects">
+                    <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter" data-filter="development" aria-pressed="false">In development</button>
+                    <button type="button" class="filter" data-filter="hardware" aria-pressed="false">Hardware</button>
+                    <button type="button" class="filter" data-filter="software" aria-pressed="false">Software</button>
+                    <button type="button" class="filter" data-filter="research" aria-pressed="false">Research</button>
+                </div>
             </div>
             <div class="project-grid">
-                <article class="project-card project-feature reveal">
-                    <div class="project-art art-circuit"><span class="project-index">01</span><i></i><i></i><i></i><i></i></div>
-                    <div class="project-content"><div class="project-meta"><span>Personal project</span><span>2025</span></div><h3>Smart Desk System</h3><p>A sensor-based desk environment that tracks light, temperature, and occupancy.</p><div class="project-bottom"><div class="tags"><span>Arduino</span><span>C++</span><span>CAD</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+                <article class="project-card project-feature reveal" data-tags="development hardware software">
+                    <div class="project-art art-arm" data-active="motors">
+                        <span class="project-index">01</span>
+                        <svg viewBox="0 0 560 380" aria-hidden="true">
+                            <path class="schematic-path" data-layer="kinematics" d="M 320 300 C 300 200 380 140 440 192" />
+                            <path class="schematic-arc" data-layer="kinematics" d="M 178 312 A 50 50 0 0 0 150 282 M 247 195 A 44 44 0 0 1 258 176" />
+                            <line class="schematic-table" x1="20" y1="344" x2="540" y2="344" />
+                            <path class="schematic-base" d="M 100 344 l 8 -24 h 44 l 8 24 z" />
+                            <line class="schematic-link" x1="130" y1="326" x2="215" y2="165" />
+                            <line class="schematic-link" x1="215" y1="165" x2="365" y2="195" />
+                            <g class="schematic-layer" data-layer="spoon">
+                                <line x1="365" y1="195" x2="422" y2="195" />
+                                <ellipse cx="430" cy="195" rx="13" ry="5" />
+                            </g>
+                            <g class="schematic-layer schematic-joints" data-layer="motors">
+                                <circle cx="130" cy="326" r="11" /><circle cx="215" cy="165" r="10" /><circle cx="365" cy="195" r="8" />
+                                <rect x="28" y="296" width="52" height="30" /><text x="54" y="315">MCU</text>
+                                <path d="M 80 312 h 38" />
+                            </g>
+                            <g class="schematic-layer schematic-boxes" data-layer="vision">
+                                <path d="M 412 146 h -14 v 14 M 486 146 h 14 v 14 M 412 242 h -14 v -14 M 486 242 h 14 v -14" />
+                                <text x="398" y="134">mouth</text>
+                                <path d="M 280 278 h -14 v 14 M 360 278 h 14 v 14 M 280 340 h -14 v -14 M 360 340 h 14 v -14" />
+                                <text x="266" y="266">food</text>
+                            </g>
+                            <path class="schematic-bowl" d="M 288 318 h 64 q -4 26 -22 26 h -20 q -18 0 -22 -26 z" />
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Personal project</span><span class="live-status"><i class="status-dot"></i>In development</span></div>
+                        <h3>Self-Feeding Robotic Arm</h3>
+                        <p>A robotic arm I'm developing to help people with Parkinson's disease eat more independently.</p>
+                        <div class="subsystems">
+                            <div class="subsystem-tabs" role="tablist" aria-label="Arm subsystems">
+                                <button type="button" role="tab" id="tab-motors" aria-controls="subsystem-panel" aria-selected="true" data-subsystem="motors">Motors</button>
+                                <button type="button" role="tab" id="tab-vision" aria-controls="subsystem-panel" aria-selected="false" tabindex="-1" data-subsystem="vision">Vision</button>
+                                <button type="button" role="tab" id="tab-kinematics" aria-controls="subsystem-panel" aria-selected="false" tabindex="-1" data-subsystem="kinematics">Kinematics</button>
+                                <button type="button" role="tab" id="tab-spoon" aria-controls="subsystem-panel" aria-selected="false" tabindex="-1" data-subsystem="spoon">Spoon &amp; safety</button>
+                            </div>
+                            <p class="subsystem-panel" id="subsystem-panel" role="tabpanel" aria-labelledby="tab-motors" data-copy-motors="Arduino and C++ for motor control." data-copy-vision="Python and OpenCV for food detection and mouth tracking." data-copy-kinematics="Inverse kinematics for precise arm movements." data-copy-spoon="A custom spoon attachment, plus safety features that keep operation smooth and controlled.">Arduino and C++ for motor control.</p>
+                        </div>
+                        <div class="tags"><span>Arduino</span><span>C++</span><span>Python</span><span>OpenCV</span><span>Inverse kinematics</span></div>
+                    </div>
                 </article>
-                <article class="project-card reveal">
-                    <div class="project-art art-wheel"><span class="project-index">02</span><b></b></div>
-                    <div class="project-content"><div class="project-meta"><span>Coursework</span><span>2025</span></div><h3>Line-Following Robot</h3><p>A compact autonomous robot designed to follow a marked path with real-time correction.</p><div class="project-bottom"><div class="tags"><span>Arduino</span><span>Controls</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+
+                <article class="project-card reveal" data-tags="software">
+                    <div class="project-art art-speed">
+                        <span class="project-index">02</span>
+                        <div class="speed-chart" role="img" aria-label="Load time dropped from more than 13 seconds to under 1 second.">
+                            <div class="speed-row"><span>Before</span><div><i class="speed-before"></i></div><b>13+ s</b></div>
+                            <div class="speed-row"><span>After</span><div><i class="speed-after"></i></div><b>&lt;1 s</b></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Sun Life internship</span><span>2025</span></div>
+                        <h3>Internal AI Chrome Extension</h3>
+                        <p>One-click access to Sun Life's internal AI tool from any browser tab, so employees can use it alongside their other work. It also removed repeated login steps from the workflow.</p>
+                        <div class="tags"><span>Chrome extension</span><span>Front-end</span></div>
+                    </div>
                 </article>
-                <article class="project-card reveal">
-                    <div class="project-art art-code"><span class="project-index">03</span><strong>&lt;/&gt;</strong></div>
-                    <div class="project-content"><div class="project-meta"><span>Web project</span><span>2025</span></div><h3>Engineering Dashboard</h3><p>A clean interface for visualizing measurements from small hardware experiments.</p><div class="project-bottom"><div class="tags"><span>JavaScript</span><span>Data</span></div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+
+                <article class="project-card reveal" data-tags="hardware">
+                    <div class="project-art art-gears">
+                        <span class="project-index">03</span>
+                        <svg viewBox="0 0 400 270" aria-hidden="true">
+                            <g class="gear gear-large"><circle cx="165" cy="135" r="62" pathLength="32" /><circle class="gear-rim" cx="165" cy="135" r="54" /><circle class="gear-hub" cx="165" cy="135" r="20" /></g>
+                            <g class="gear gear-small"><circle cx="266" cy="135" r="38.75" pathLength="20" /><circle class="gear-rim" cx="266" cy="135" r="30.75" /><circle class="gear-hub" cx="266" cy="135" r="11" /></g>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Senior executive &amp; lead builder</span><span>2023 — 2025</span></div>
+                        <h3>VEX Competition Robots</h3>
+                        <p>Led mechanical design and build for the UTS Robotics team, iterating on drivetrains and mechanisms through rapid prototyping and testing.</p>
+                        <div class="tags"><span>Mechanical design</span><span>Drivetrains</span><span>Prototyping</span></div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-tags="hardware research">
+                    <div class="project-art art-ratio">
+                        <span class="project-index">04</span>
+                        <svg viewBox="0 0 400 270" role="img" aria-label="Schematic of engine speed against road speed. A multi-speed gearbox makes a sawtooth as it shifts, while a CVT rises and holds steady.">
+                            <path class="ratio-axis" d="M 56 56 V 214 H 356" />
+                            <path class="ratio-steps" pathLength="1" d="M 56 200 L 136 92 L 146 132 L 216 92 L 226 124 L 286 92 L 296 118 L 348 92" />
+                            <path class="ratio-cvt" pathLength="1" d="M 56 200 C 76 150 96 124 136 116 H 348" />
+                            <text x="56" y="44">Engine speed</text>
+                            <text x="356" y="238" text-anchor="end">Road speed</text>
+                            <text class="ratio-label-steps" x="348" y="80" text-anchor="end">Multi-speed</text>
+                            <text class="ratio-label-cvt" x="348" y="146" text-anchor="end">CVT</text>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Independent field study</span><span>2025</span></div>
+                        <h3>Multi-Speed vs CVT Transmissions</h3>
+                        <p>Compared the two systems at Mister Transmission in Cambridge, weighing efficiency, durability, repair cost, and maintenance complexity through real vehicle service work.</p>
+                        <div class="tags"><span>Transmissions</span><span>Cost-benefit analysis</span></div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-tags="research">
+                    <div class="project-art art-dots">
+                        <span class="project-index">05</span>
+                        <svg viewBox="0 0 400 270" aria-hidden="true">
+                            <defs><pattern id="dot-field" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="3" /></pattern></defs>
+                            <rect x="44" y="44" width="312" height="182" fill="url(#dot-field)" />
+                            <g class="dot-accent"><circle cx="109" cy="109" r="5" /><circle cx="135" cy="109" r="5" /><circle cx="135" cy="135" r="5" /><circle cx="161" cy="135" r="5" /><circle cx="161" cy="161" r="5" /><circle cx="213" cy="83" r="5" /><circle cx="239" cy="83" r="5" /><circle cx="265" cy="109" r="5" /><circle cx="291" cy="161" r="5" /><circle cx="291" cy="187" r="5" /></g>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>UTS Collaboratory</span><span>2025 — 2026</span></div>
+                        <h3>Visualizing Doctoral Research</h3>
+                        <p>Turned qualitative and quantitative findings on adolescent mothers' access to essential services in Nigeria into clear visuals for academic audiences.</p>
+                        <div class="tags"><span>Data visualization</span><span>Research</span></div>
+                    </div>
                 </article>
             </div>
+            <p class="filter-status" role="status" aria-live="polite"></p>
         </section>
 
         <section class="section container" id="experience">
-            <div class="section-label"><span>04</span><span>Experience &amp; learning</span></div>
+            <div class="section-label"><span>04</span><span>Experience &amp; education</span></div>
             <div class="timeline">
-                <div class="timeline-item reveal"><time>2025 — Present</time><div><h3>Mechatronics Engineering</h3><p>University of Waterloo · Waterloo, Ontario</p><span>Building fundamentals across mechanics, electronics, programming, and design.</span></div></div>
-                <div class="timeline-item reveal"><time>2024 — 2025</time><div><h3>Independent Projects</h3><p>Self-directed learning</p><span>Exploring microcontrollers, CAD, web development, and rapid prototyping.</span></div></div>
                 <div class="timeline-item reveal"><time>Next chapter</time><div><h3>Looking for opportunities</h3><p>Co-op · Design teams · Collaborations</p><span>Open to learning from people building useful, well-considered things.</span></div></div>
+                <div class="timeline-item reveal"><time>Sept 2026 — Expected 2031</time><div><h3>Mechatronics Engineering</h3><p>University of Waterloo · Waterloo, ON</p><span>Building fundamentals across mechanics, electronics, programming, and design.</span></div></div>
+                <div class="timeline-item timeline-expandable reveal">
+                    <time>Aug 2025</time>
+                    <div>
+                        <h3><button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="role-transmission">Independent Engineering Field Study</button></h3>
+                        <p>Mister Transmission · Cambridge, ON</p>
+                        <div class="timeline-panel" id="role-transmission"><ul>
+                            <li>Conducted an independent study comparing multi-speed and continuously variable transmission (CVT) systems.</li>
+                            <li>Analyzed cost-benefit tradeoffs across efficiency, durability, repair cost, and maintenance complexity through hands-on observation of real vehicle service work.</li>
+                        </ul></div>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-expandable open reveal">
+                    <time>July 2025</time>
+                    <div>
+                        <h3><button type="button" class="timeline-toggle" aria-expanded="true" aria-controls="role-sunlife">Associate Front-End Developer (Intern)</button></h3>
+                        <p>Sun Life Financial Inc. · High School Experience Program</p>
+                        <div class="timeline-panel" id="role-sunlife"><ul>
+                            <li>Designed and built a Chrome extension that gives employees one-click access to Sun Life's internal AI tool from any browser tab.</li>
+                            <li>Cut the tool's load time from 13+ seconds to under 1 second (over 90% faster) and removed repeated login steps from the workflow.</li>
+                            <li>Presented the solution and its productivity impact to Sun Life vice presidents.</li>
+                        </ul></div>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-expandable reveal">
+                    <time>Apr 2025 — June 2026</time>
+                    <div>
+                        <h3><button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="role-collaboratory">Data Visualization Contributor</button></h3>
+                        <p>UTS Collaboratory · In partnership with the University of Toronto</p>
+                        <div class="timeline-panel" id="role-collaboratory"><ul>
+                            <li>Built visualizations of doctoral research findings on adolescent mothers' access to essential services in Nigeria.</li>
+                            <li>Translated qualitative and quantitative research data into clear visual formats for academic audiences.</li>
+                        </ul></div>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-expandable reveal">
+                    <time>Sept 2023 — June 2025</time>
+                    <div>
+                        <h3><button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="role-vex">VEX Robotics: Senior Executive &amp; Lead Builder</button></h3>
+                        <p>University of Toronto Schools Robotics Team</p>
+                        <div class="timeline-panel" id="role-vex"><ul>
+                            <li>Led mechanical design and build of competition robots as a senior member of the team's executive.</li>
+                            <li>Iterated on drivetrain and mechanism designs through rapid prototyping and testing to improve competition performance.</li>
+                            <li>Helped the team qualify for the VEX Robotics World Championship three consecutive years: Dallas, TX (2024, 2025) and St. Louis, MO (2026).</li>
+                            <li>Coordinated build schedules and mentored newer members on design and fabrication practices.</li>
+                        </ul></div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal"><time>Sept 2020 — June 2026</time><div><h3>University of Toronto Schools (UTS)</h3><p>Toronto, ON</p></div></div>
             </div>
         </section>
 
         <section class="contact container reveal" id="contact">
             <p class="eyebrow">05 / Get in touch</p>
             <h2>Let's build something<br><em>worth sharing.</em></h2>
-            <a class="email" href="mailto:your.email@example.com">your.email@example.com <span>↗</span></a>
-            <div class="social-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+            <div class="contact-actions">
+                <a class="email" href="mailto:keshavvyas600@gmail.com">keshavvyas600@gmail.com <span>↗</span></a>
+                <button type="button" class="copy-email" data-email="keshavvyas600@gmail.com">Copy</button>
+            </div>
+            <div class="social-links"><a href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a></div>
         </section>
     </main>
 
     <footer class="footer container"><span>© 2026 Keshav Vyas</span><span>Designed &amp; built in Waterloo</span></footer>
+    <div class="toast" role="status" aria-live="polite"></div>
     <script src="js/script.js"></script>
 </body>
 </html>
